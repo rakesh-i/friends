@@ -13,13 +13,15 @@
   </thead>
   <tbody>
     <% @friends.each do |friend| %>
-      <tr>
-        <td><%=friend.first_name%></td>
-        <td><%=friend.last_name%></td>
-        <td><%=friend.email%></td>
-        <td><%=friend.twitter%></td>
-        <td><%= link_to "Show this friend", friend %></td>
-      </tr>
+      <%if friend.user_id==current_user.id%>
+        <tr>
+          <td><%=friend.first_name%></td>
+          <td><%=friend.last_name%></td>
+          <td><%=friend.email%></td>
+          <td><%=friend.twitter%></td>
+          <td><%= link_to "Show this friend", friend %></td>
+        </tr>
+      <%end%>
     <% end %>
   </tbody>
 </table>
